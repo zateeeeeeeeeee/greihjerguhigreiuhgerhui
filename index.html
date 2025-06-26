@@ -3,156 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Fast Flags</title>
+    <title>Roblox FastFlags</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #121212;
-            color: #ffffff;
-        }
-        h1, h2 {
-            color: #0095ff;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f2f5;
+            color: #333;
         }
         .container {
             max-width: 1200px;
-            margin: auto;
-            background: #1e1e1e;
+            margin: 0 auto;
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .search-box {
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #0056b3;
+            margin-top: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .section-description {
+            background-color: #e9f5ff;
+            border-left: 5px solid #0056b3;
+            padding: 15px;
             margin-bottom: 20px;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            border: 1px solid #555;
             border-radius: 4px;
-            background-color: #2d2d2d;
-            color: white;
         }
-        .category {
+        .fastflag-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .fastflag-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        .fastflag-card strong {
+            color: #333;
+            font-size: 1.1em;
+        }
+        .fastflag-card p {
+            margin: 5px 0 0 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .fastflag-card .value {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #e9e9e9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #c00;
+        }
+        .type-description, .prefix-description {
             margin-bottom: 20px;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #fdfdfd;
         }
-        .category h2 {
-            cursor: pointer;
+        .type-description h3, .prefix-description h3 {
+            color: #007bff;
+            margin-top: 0;
         }
-        .category-content {
-            display: none;
-            padding: 10px;
-        }
-        .category.active .category-content {
-            display: block;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #555;
-        }
-        th {
-            background-color: #0095ff;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #2d2d2d;
-        }
-        tr:hover {
-            background-color: #3c3c3c;
+        .type-description p, .prefix-description p {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Roblox Fast Flags</h1>
-        <input type="text" id="search" class="search-box" placeholder="Search for fast flags...">
-        <div id="categories"></div>
+        <h1>Roblox FastFlags</h1>
+
+        <div class="section-description">
+            <p>This page lists all existing Roblox FastFlags, providing their name, type, description, and current value. FastFlags are internal variables used by Roblox to control various features and behaviors.</p>
+        </div>
+
+        <h2>Type Descriptions</h2>
+        <div class="type-description">
+            <p><strong>Flag:</strong> A boolean variable that can be either true or false.</p>
+            <p><strong>Int:</strong> An integer variable used to store whole numbers.</p>
+            <p><strong>String:</strong> A variable used to store a sequence of characters.</p>
+        </div>
+
+        <h2>Prefix Descriptions</h2>
+        <div class="prefix-description">
+            <p><strong>F (Fast):</strong> A regular fastvariable that is initialized once and does not change until a new session begins.</p>
+            <p><strong>DF (Dynamic Fast):</strong> A fastvariable that can change at run-time, and automatically updates every 5 minutes.</p>
+        </div>
+
+        <h2>FastFlags</h2>
+        <div class="fastflag-grid">
+            <div class="fastflag-card">
+                <strong>AllowVideoPreRoll</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Controls whether video pre-roll advertisements are allowed.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidANRChannels</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Enables or disables ANR (Application Not Responding) channels for Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidAppChatMigrationEnabled</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Indicates if Android app chat migration is enabled.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidAppChatPushSupportsGuid</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"false"</span></p>
+                <p>Description: Specifies if Android app chat push notifications support GUIDs.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidApplicationExitReasonNumEntriesToFetch</strong>
+                <p>Type: <span class="value">int</span></p>
+                <p>Value: <span class="value">20</span></p>
+                <p>Description: The number of application exit reason entries to fetch on Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidAudioManagerFixSpeakerBTLeak</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Fixes a speaker Bluetooth audio leak issue on Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidCameraBindTryCatch</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Enables try-catch blocks for camera binding on Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidEnableBatteryPowerMetrics</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Enables battery power metrics collection on Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidEnableBinaryChannels</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Enables binary channels for Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidEnableRelativeMouseMovement</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Enables relative mouse movement on Android devices.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidFixSingleSurfaceAppNotchScreenSupportDisabled</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Fixes single surface app notch screen support being disabled on Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidHardKeyboardFocusFix</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Applies a fix for hardware keyboard focus on Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidImplementPanVelocity</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Implements pan velocity functionality for Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidMediaPickerProtocolRefactoring</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Refactors the media picker protocol on Android.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidNotchExperimentAddGameBlockList</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">false</span></p>
+                <p>Description: Adds a game block list for the Android notch experiment.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidNotchExperimentGameBlockList</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"13698105873;9103898828;606849621;6872265039;8560631822;4639625707;4972091010;174238106;3214114884;2971329387;155615604;5310443220;13876710689;4480809144;14259168..."</span></p>
+                <p>Description: A list of games blocked from the Android notch experiment.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>AndroidSdkAppTypeFromBackend</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Determines the Android SDK app type from the backend.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>GoogleAnalyticsAccountPropertyID</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"UA-43420590-3"</span></p>
+                <p>Description: The Google Analytics account property ID for general tracking.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>GoogleAnalyticsAccountPropertyIDPlayer</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"UA-43420590-14"</span></p>
+                <p>Description: The Google Analytics account property ID for player-specific tracking.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>GraphicsChromebookPowerVR</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Enables PowerVR graphics specific settings for Chromebooks.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>MoveNotificationManagerRemoveObserverFromPauseToStop2</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Moves notification manager observer removal from pause to stop phase (version 2).</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>MoveStoreLinksToBuildConfig</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Relocates store links to the build configuration.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>NativeAdsProtocolUseBackgroundThread</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Specifies whether the native ads protocol should use a background thread.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>NativePurchaseWithPayload</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Enables native purchase functionality with a payload.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>NativePurchaseWithUserId</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Enables native purchase functionality with a user ID.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>ObbEnsureDirsExistContextFix</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Applies a context fix to ensure OBB (Opaque Binary Blob) directories exist.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>ObbUnzipRemoval</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Removes OBB unzip functionality.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>OpenGLES2DeprecationPhase</strong>
+                <p>Type: <span class="value">int</span></p>
+                <p>Value: <span class="value">0</span></p>
+                <p>Description: The current deprecation phase for OpenGL ES 2.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>PassThroughTrimMemoryLevel</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Passes through the trim memory level.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>PerformanceControlParseLmkdConfigs</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Parses LMKD (Low Memory Killer Daemon) configurations for performance control.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>PreventDismissingForceUpgrade</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Prevents dismissing force upgrade prompts.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>PublishedProjectsPageHeight</strong>
+                <p>Type: <span class="value">int</span></p>
+                <p>Value: <span class="value">535</span></p>
+                <p>Description: The height of the published projects page.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>PublishedProjectsPageUrl</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"/ide/publish"</span></p>
+                <p>Description: The URL for the published projects page.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>PublishedProjectsPageWidth</strong>
+                <p>Type: <span class="value">int</span></p>
+                <p>Value: <span class="value">950</span></p>
+                <p>Description: The width of the published projects page.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>RemoveDeprecatedNotifications</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Removes deprecated notifications.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>RemoveScreenDpiTool</strong>
+                <p>Type: <span class="value">string</span></p>
+                <p>Value: <span class="value">"true"</span></p>
+                <p>Description: Removes the screen DPI tool.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>RemoveVRToggleDialog2</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Removes the VR toggle dialog (version 2).</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>SFFlagEliminateLSCHashStorage2</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">false</span></p>
+                <p>Description: Eliminates LSC hash storage (version 2).</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>SFFlagSimOneAttachmentAlignmentsAreNotSpanningTreeJoints2</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">false</span></p>
+                <p>Description: Specifies that simulation one attachment alignments are not spanning tree joints (version 2).</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>SFFlagSimSolverMoverConstraintRootBehaviorEnablePhaseThree</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Enables phase three of the simulation solver mover constraint root behavior.</p>
+            </div>
+            <div class="fastflag-card">
+                <strong>SFFlagSimSolverMoverConstraintRootBehaviorSetDefaultEnabled</strong>
+                <p>Type: <span class="value">bool</span></p>
+                <p>Value: <span class="value">true</span></p>
+                <p>Description: Sets the default enabled state for simulation solver mover constraint root behavior.</p>
+            </div>
+        </div>
     </div>
-    <script>
-        // Sample data structure for fast flags
-        const fastFlags = {
-            'Dynamic Fast Flags': [
-                { name: 'DFFlagAbuseReportInExperienceStateCaptureMode', type: 'bool', value: true, description: 'Description for DFFlagAbuseReportInExperienceStateCaptureMode' },
-                { name: 'DFFlagAccessCookiesWithUrlEnabled', type: 'bool', value: true, description: 'Description for DFFlagAccessCookiesWithUrlEnabled' }
-            ],
-            'String Fast Flags': [
-                { name: 'FStringAddUILessModeIxpLayer', type: 'string', value: 'Experience.Menu.UILess.Exposure', description: 'Description for FStringAddUILessModeIxpLayer' },
-                { name: 'FStringAdGuiHorizontalRobloxFallbackImageAssetId', type: 'int', value: 11307989327, description: 'Description for FStringAdGuiHorizontalRobloxFallbackImageAssetId' }
-            ],
-            'Integer Fast Flags': [
-                { name: 'FInt9SliceEditorAnalyticsReportingHundrethsPercent', type: 'int', value: 10001, description: 'Description for FInt9SliceEditorAnalyticsReportingHundrethsPercent' },
-                { name: 'FIntAchievementGrantedThrottleHundrethsPercent', type: 'int', value: 500, description: 'Description for FIntAchievementGrantedThrottleHundrethsPercent' }
-            ],
-            'Regular Fast Flags': [
-                { name: 'FFlag9SliceEditorAllowUnloadedImages', type: 'bool', value: true, description: 'Description for FFlag9SliceEditorAllowUnloadedImages' },
-                { name: 'FFlag9SliceEditorMigrateToRoact17', type: 'bool', value: true, description: 'Description for FFlag9SliceEditorMigrateToRoact17' }
-            ],
-            'Other': [
-                { name: 'AllowVideoPreRoll', type: 'bool', value: true, description: 'Description for AllowVideoPreRoll' },
-                { name: 'AndroidANRChannels', type: 'bool', value: true, description: 'Description for AndroidANRChannels' }
-            ]
-        };
-
-        // Function to render fast flags
-        function renderFastFlags() {
-            const searchTerm = document.getElementById('search').value.toLowerCase();
-            const categoriesDiv = document.getElementById('categories');
-            categoriesDiv.innerHTML = '';
-
-            for (const [category, flags] of Object.entries(fastFlags)) {
-                const filteredFlags = flags.filter(flag =>
-                    flag.name.toLowerCase().includes(searchTerm) ||
-                    flag.description.toLowerCase().includes(searchTerm)
-                );
-
-                if (filteredFlags.length > 0) {
-                    let categoryHTML = `
-                        <div class="category">
-                            <h2 onclick="this.parentElement.classList.toggle('active')">${category}</h2>
-                            <div class="category-content">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Type</th>
-                                            <th>Value</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                    `;
-
-                    filteredFlags.forEach(flag => {
-                        categoryHTML += `
-                            <tr>
-                                <td>${flag.name}</td>
-                                <td>${flag.type}</td>
-                                <td>${flag.value}</td>
-                            </tr>
-                        `;
-                    });
-
-                    categoryHTML += `
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    `;
-                    categoriesDiv.innerHTML += categoryHTML;
-                }
-            }
-        }
-
-        // Add event listener for search input
-        document.getElementById('search').addEventListener('input', renderFastFlags);
-
-        // Initial render
-        renderFastFlags();
-    </script>
 </body>
 </html>
